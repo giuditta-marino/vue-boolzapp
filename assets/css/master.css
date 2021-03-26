@@ -9,26 +9,47 @@ header{
 }
 
 header .topbar{
-  background-color: red;
+  margin-left: 32%;
+  background-color: #F2F2F2;
   height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+header .topbar .info-topbar .avatar-access{
+  display: flex;
+  align-items: center;
 }
 
 header .sidebar{
-  background-color: blue;
+  background-color: #fff;
   width: 32%;
   height: 100vh;
   position: fixed;
   top: 0;
 }
 
+header .sidebar .info-sidebar{
+  height: 70px;
+  background-color: #F2F2F2;
+}
+
+header .sidebar .notifications{
+  background-color: #8EDAFC;
+}
+
+img{
+  width: 50px;
+}
+
 main{
   width: 68%;
   height: calc(100vh - 140px);
-  background-color: yellow;
+  background: url("../img/mine.jpg");
   margin-left: 32%;
 }
 
 footer{
-  background-color: pink;
+  background-color: #EAEAEA;
   height: 70px;
 }
