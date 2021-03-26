@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
 header{
   height: 70px;
 }
@@ -14,6 +18,13 @@ header .topbar{
   height: 70px;
   display: flex;
   align-items: center;
+}
+
+header .topbar .info-topbar{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
 }
 
 header .topbar .info-topbar .avatar-access{
@@ -30,12 +41,65 @@ header .sidebar{
 }
 
 header .sidebar .info-sidebar{
+  display: flex;
+  align-items: center;
   height: 70px;
   background-color: #F2F2F2;
 }
 
+header .sidebar .info-sidebar .avatar-name{
+  display: flex;
+  align-items: center;
+}
+
 header .sidebar .notifications{
+  height: 80px;
+  display: flex;
+  align-items: center;
   background-color: #8EDAFC;
+}
+
+header .sidebar .notifications .icon-info-notifications{
+  display: flex;
+  align-items: center;
+}
+
+header .sidebar .notifications .icon i{
+  font-size: 1.7em;
+}
+
+header .sidebar .search-bar{
+  height: 50px;
+  background-color: #FAFAFA;
+  padding: 8px;
+  display: flex;
+}
+
+header .sidebar .search-bar input{
+  padding: 7px;
+  width: 80%;
+  border: 1px solid #eee;
+}
+
+header .sidebar .search-bar input::placeholder{
+
+}
+
+header .sidebar .search-bar .icons{
+  width: 20%;
+  height: 34px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-right: 0;
+}
+
+header .sidebar .contacts .contact{
+  display: flex;
+  justify-content: space-between;
+}
+
+header .sidebar .contacts .img-name-message{
+  display: flex;
 }
 
 img{
@@ -50,6 +114,19 @@ main{
 }
 
 footer{
+  margin-left: 32%;
   background-color: #EAEAEA;
   height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .input{
+  width: 80%;
+
+}
+
+.t-grey{
+  color: #B0C0C5;
 }
