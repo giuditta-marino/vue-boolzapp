@@ -1,0 +1,34 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header{
+  height: 70px;
+}
+
+header .topbar{
+  background-color: red;
+  height: 70px;
+}
+
+header .sidebar{
+  background-color: blue;
+  width: 32%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+
+main{
+  width: 68%;
+  height: calc(100vh - 140px);
+  background-color: yellow;
+  margin-left: 32%;
+}
+
+footer{
+  background-color: pink;
+  height: 70px;
+}
