@@ -90,6 +90,14 @@ header .sidebar .notifications .icon i{
   color: #8EDAFC;
 }
 
+header .sidebar .notifications .text .receive-notifications{
+  font-weight: 500;
+}
+
+header .sidebar .notifications .text .active-notifications{
+  text-decoration: underline;
+}
+
 header .sidebar .search-bar{
   height: 50px;
   background-color: #FAFAFA;
@@ -133,6 +141,10 @@ header .sidebar .contacts .contact{
   border-bottom: 1px solid #D5D8DC;
   padding: 10px;
   height: 80px;
+}
+
+.name{
+  font-weight: 600;
 }
 
 header .sidebar .contacts .contact:hover, header .sidebar .contacts .contact:focus{
@@ -194,5 +206,5 @@ input::placeholder{
 }
 
 .t-grey{
-  color: #B0C0C5;
+  color: #A6ACAF;
 }
