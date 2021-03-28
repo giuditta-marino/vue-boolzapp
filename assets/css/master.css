@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+p{
+  margin-bottom: 0;
+}
+
 body{
   font-family: 'Roboto', sans-serif;
 }
@@ -170,6 +174,27 @@ main{
   background: url("../img/mine.jpg");
   margin-left: 32%;
   overflow-y: scroll;
+  padding: 40px;
+}
+
+main .message{
+  border-radius: 8px;
+  width: 35%;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.date{
+  font-size: 0.6em;
+  text-align: right;
+}
+
+.message.sent{
+  background-color: #D5F9BB;
+}
+
+.message.received{
+  background-color: #fff;
 }
 
 footer{
@@ -191,6 +216,10 @@ footer .input input{
   padding: 16px;
   border-radius: 7px;
   border: 0;
+}
+
+footer i{
+  color: #687574;
 }
 
 i{
