@@ -1,23 +1,45 @@
+/* GENERALI */
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-p{
-  margin-bottom: 0;
-}
-
 body{
   font-family: 'Roboto', sans-serif;
 }
 
+p{
+  margin-bottom: 0;
+}
+
+i{
+  font-size: 1.2em;
+  color: #A6ACAF;
+  cursor: pointer;
+}
+
+img{
+  height: 45px;
+  border-radius: 50%;
+}
+
+input{
+  outline: 0;
+}
+
+input::placeholder{
+  color: #B0C0C5;
+}
+/* GENERALI */
+
+/* HEADER */
 header{
   height: 70px;
 }
 
 header .topbar{
-  margin-left: 32%;
+  margin-left: 36%;
   background-color: #F2F2F2;
   height: 70px;
   display: flex;
@@ -45,7 +67,7 @@ header .topbar .info-topbar .avatar-access{
 
 header .sidebar{
   background-color: #fff;
-  width: 32%;
+  width: 36%;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -84,14 +106,16 @@ header .sidebar .notifications .icon-info-notifications{
 }
 
 header .sidebar .notifications .icon{
+  display: flex;
+  align-items: center;
   padding: 14px;
   border-radius: 50%;
   background-color: #fff;
 }
 
 header .sidebar .notifications .icon i{
-  font-size: 1.1em;
   color: #8EDAFC;
+  font-size: 1.1em;
 }
 
 header .sidebar .notifications .text .receive-notifications{
@@ -145,13 +169,14 @@ header .sidebar .contacts .contact{
   border-bottom: 1px solid #D5D8DC;
   padding: 10px;
   height: 80px;
+  cursor: pointer;
 }
 
-.name{
-  font-weight: 600;
+header .sidebar .contacts .contact:hover{
+  background-color: #F2F2F2;
 }
 
-header .sidebar .contacts .contact:hover, header .sidebar .contacts .contact:focus{
+.contact.active{
   background-color: #F2F2F2;
 }
 
@@ -162,17 +187,14 @@ header .sidebar .contacts .contact .text{
 header .sidebar .contacts .img-name-message{
   display: flex;
 }
+/* HEADER */
 
-img{
-  height: 45px;
-  border-radius: 50%;
-}
-
+/* MAIN */
 main{
-  width: 68%;
+  width: 64%;
   height: calc(100vh - 140px);
   background: url("../img/mine.jpg");
-  margin-left: 32%;
+  margin-left: 36%;
   overflow-y: scroll;
   padding: 40px;
 }
@@ -184,11 +206,6 @@ main .message{
   margin-bottom: 8px;
 }
 
-.date{
-  font-size: 0.6em;
-  text-align: right;
-}
-
 .message.sent{
   background-color: #D5F9BB;
 }
@@ -197,8 +214,9 @@ main .message{
   background-color: #fff;
 }
 
+/* FOOTER */
 footer{
-  margin-left: 32%;
+  margin-left: 36%;
   background-color: #EAEAEA;
   height: 70px;
   display: flex;
@@ -213,7 +231,7 @@ footer .input{
 
 footer .input input{
   width: 100%;
-  padding: 16px;
+  padding: 14px;
   border-radius: 7px;
   border: 0;
 }
@@ -222,18 +240,16 @@ footer i{
   color: #687574;
 }
 
-i{
-  font-size: 1.2em;
-}
-
-input{
-  outline: 0;
-}
-
-input::placeholder{
-  color: #B0C0C5;
-}
-
+/* UTILITY E CLASSI CHE SI RIPETONO */
 .t-grey{
   color: #A6ACAF;
+}
+
+.date{
+  font-size: 0.6em;
+  text-align: right;
+}
+
+.name{
+  font-weight: 600;
 }

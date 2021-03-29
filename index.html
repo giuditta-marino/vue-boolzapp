@@ -61,7 +61,11 @@
         </div>
 
         <div class="contacts">
-          <div v-for= "contact in contacts" class="contact">
+          <div
+          v-for= "(contact, i) in contacts"
+           @click="changeIndex(i)"
+           :class="(index == i) ?'active' : ''"
+           class="contact">
             <div class="img-name-message">
               <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="avatar-image">
               <div class="text">
@@ -79,9 +83,11 @@
 
       <!-- MAIN -->
       <main>
-        <div v-for="message in contacts[0].messages" :class="(message.status == 'sent')?'sent offset-lg-8 ' :'received'" class="col-lg-4 message sent">
+        <div
+        v-for="message in contacts[index].messages"               :class="(message.status == 'sent')?'sent offset-lg-8' :'received'"
+        class="message col-lg-4">
           <p>{{message.text}}</p>
-          <p class="date t-grey">{{message.date}}</p>
+          <p class="date t-grey">{{ getTime(message.date) }}</p>
         </div>
       </main>
 
