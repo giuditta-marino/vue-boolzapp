@@ -72,7 +72,7 @@ var app = new Vue(
 					],
 				},
 				{
-					name: 'Luisa',
+					name: 'John',
 					avatar: '_4',
 					visible: true,
 					messages: [
@@ -160,6 +160,7 @@ var app = new Vue(
 			]
 
 		},
+
 		methods: {
 			// getTime: function(date) {
 			// 	let dateTime = date.split(" ");

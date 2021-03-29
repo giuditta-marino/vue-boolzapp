@@ -159,7 +159,7 @@ header .sidebar .search-bar .icons{
 
 header .sidebar .contacts{
   overflow-y: scroll;
-  height: 100%;
+  height: calc(100vh - 200px);
 }
 
 header .sidebar .contacts .contact{
