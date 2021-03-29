@@ -88,18 +88,87 @@ var app = new Vue(
 						}
 					],
 				},
+				{
+					name: 'Barbara',
+					avatar: '_5',
+					visible: true,
+					messages: [
+						{
+							date: '10/01/2020 15:30:55',
+							text: 'Come stai? Non ci sentiamo da tantissimo!',
+							status: 'sent'
+						},
+						{
+							date: '10/01/2020 15:50:00',
+							text: 'È vero, sono stata molto impegnata. Io sto bene e tu?',
+							status: 'received'
+						}
+					],
+				},
+				{
+					name: 'Francesca',
+					avatar: '_6',
+					visible: true,
+					messages: [
+						{
+							date: '10/01/2020 15:30:55',
+							text: 'A che ora passo da te?',
+							status: 'sent'
+						},
+						{
+							date: '10/01/2020 15:50:00',
+							text: 'Vieni quando vuoi, ti aspetto!',
+							status: 'received'
+						}
+					],
+				},
+				{
+					name: 'Mario',
+					avatar: '_7',
+					visible: true,
+					messages: [
+						{
+							date: '10/01/2020 15:30:55',
+							text: 'Mi manderest gli appunti di Francese?',
+							status: 'sent'
+						},
+						{
+							date: '10/01/2020 15:50:00',
+							text: 'Certo, subito!',
+							status: 'received'
+						}
+					],
+				},
+				{
+					name: 'Roberto',
+					avatar: '_8',
+					visible: true,
+					messages: [
+						{
+							date: '10/01/2020 15:30:55',
+							text: 'Buongiorno, il suo album è pronto. Può venire a ritirarlo in studio.',
+							status: 'sent'
+						},
+						{
+							date: '10/01/2020 15:50:00',
+							text: 'Buongiorno a lei, grazie, a più tardi!',
+							status: 'received'
+						}
+					],
+				},
+
 			]
 
 		},
 		methods: {
-			getTime: function(date) {
-				// let dateTime = date.split(" ");
-				let dateTime = date.slice(11,16);
-				// console.log(dateTime);
-				// let time = dateTime[1].split(":");
-				// console.log(time);
-				// return `${time[0]} : ${time[1]}`;
-			},
+			// getTime: function(date) {
+			// 	let dateTime = date.split(" ");
+			// 	// let dateTime = date.slice(11,16);
+			// 	console.log(dateTime);
+			// 	let time = dateTime[1].split(":");
+			// 	console.log(time);
+			// 	return `${time[0]} : ${time[1]}`;
+			// },
 
 			changeIndex: function(i) {
 				this.index = i;
