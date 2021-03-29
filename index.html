@@ -16,9 +16,9 @@
       <div class="topbar">
         <div class="info-topbar">
           <div class="avatar-access">
-            <img src="./assets/img/avatar_5.jpg" alt="avatar-profile-image">
+            <img src="./assets/img/avatar_io.jpg" alt="avatar-profile-image">
             <div class="info">
-              <p class="name">Michele</p>
+              <p class="name">Giuditta</p>
               <p class="access t-grey">Ultimo accesso oggi alle ore 10/01/2020 16:15:22</p>
             </div>
             </div>
@@ -33,8 +33,8 @@
 
         <div class="info-sidebar">
           <div class="avatar-name">
-            <img src="./assets/img/avatar_7.jpg" alt="avatar-image">
-            <p class="name">Simone</p>
+            <img :src="'./assets/img/avatar' + contacts[index].avatar + '.jpg'" alt="avatar-image">
+            <p class="name">{{contacts[index].name}}</p>
           </div>
           <div class="icons-sidebar controls t-grey">
             <i class="fas fa-circle-notch"></i>
@@ -87,7 +87,7 @@
         v-for="message in contacts[index].messages"               :class="(message.status == 'sent')?'sent offset-lg-8' :'received'"
         class="message col-lg-4">
           <p>{{message.text}}</p>
-          <p class="date t-grey">{{ getTime(message.date) }}</p>
+          <p class="date t-grey">{{ message.date }}</p>
         </div>
 
       </main>
