@@ -20,7 +20,7 @@ i{
 }
 
 img{
-  height: 45px;
+  height: 55px;
   border-radius: 50%;
 }
 
@@ -39,7 +39,7 @@ header{
 }
 
 header .topbar{
-  margin-left: 36%;
+  margin-left: 35%;
   background-color: #F2F2F2;
   height: 70px;
   display: flex;
@@ -67,7 +67,7 @@ header .topbar .info-topbar .avatar-access{
 
 header .sidebar{
   background-color: #fff;
-  width: 36%;
+  width: 35%;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -108,7 +108,7 @@ header .sidebar .notifications .icon-info-notifications{
 header .sidebar .notifications .icon{
   display: flex;
   align-items: center;
-  padding: 14px;
+  padding: 13px 11px;
   border-radius: 50%;
   background-color: #fff;
 }
@@ -167,9 +167,13 @@ header .sidebar .contacts .contact{
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #D5D8DC;
-  padding: 10px;
-  height: 80px;
+  padding: 15px;
   cursor: pointer;
+}
+
+header .sidebar .contacts .contact .img-name-message{
+  display: flex;
+  align-items: center;
 }
 
 header .sidebar .contacts .contact:hover{
@@ -194,7 +198,7 @@ main{
   width: 64%;
   height: calc(100vh - 140px);
   background: url("../img/mine.jpg");
-  margin-left: 36%;
+  margin-left: 35%;
   overflow-y: scroll;
   padding: 40px;
 }
@@ -216,7 +220,7 @@ main .message{
 
 /* FOOTER */
 footer{
-  margin-left: 36%;
+  margin-left: 35%;
   background-color: #EAEAEA;
   height: 70px;
   display: flex;

@@ -129,7 +129,7 @@ var app = new Vue(
 					messages: [
 						{
 							date: '10/01/2020 15:30:55',
-							text: 'Mi manderest gli appunti di Francese?',
+							text: 'Mi manderesti gli appunti di Francese?',
 							status: 'sent'
 						},
 						{
