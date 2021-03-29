@@ -93,10 +93,12 @@ var app = new Vue(
 		},
 		methods: {
 			getTime: function(date) {
-				let dateTime = new Date(date);
-				let hours = dateTime.getHours();
-				let minutes = dateTime.getMinutes();
-				return `${hours}:${minutes}`;
+				let dateTime = date.split(" ");
+				// let dateTime = date.slice(11,16);
+				console.log(dateTime);
+				let time = dateTime[1].split(":");
+				console.log(time);
+				return `${time[0]}:${time[1]}`;
 			},
 
 			changeIndex: function(i) {
