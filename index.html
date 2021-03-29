@@ -89,6 +89,7 @@
           <p>{{message.text}}</p>
           <p class="date t-grey">{{ getTime(message.date) }}</p>
         </div>
+
       </main>
 
 
@@ -99,7 +100,10 @@
             <i class="far fa-smile"></i>
           </div>
           <div class="input">
-            <input type="text" name="" value="" placeholder="Scrivi un messaggio">
+            <input type="text" name="" value="" placeholder="Scrivi un messaggio"
+            v-model="inputText"
+            @keyup.enter="writeMessage"
+            >
           </div>
           <div class="microphone">
             <i class="fas fa-microphone"></i>

@@ -2,6 +2,7 @@ var app = new Vue(
 	{
 		el: '#root',
 		data: {
+			inputText:'',
 			index: 0,
 			contacts: [
 				{
@@ -101,9 +102,33 @@ var app = new Vue(
 			changeIndex: function(i) {
 				this.index = i;
 				console.log(this.index);
-			}
-		}
+			},
 
+			// ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+			// “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+			// PRENDERE enter E CREARE UNA FUNZIONE CHE CREI UN OGGETTO CON TEXT INPUTTEXT E LO AGGIUNGA ALL'ARRAY MESSAGES DI QUEL CONTATTO
+
+					// Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
+					// un “ok” come risposta, che apparirà dopo 1 secondo.
+					// devo far partire un settimeout che un seconodo dopo l'inserimento di un messaggio da parte dell'utente crei un obj con text 'ok' e status received e lo inserisca nell'array
+			writeMessage: function(){
+				let obj ={
+					text: this.inputText,
+					status: 'sent'
+				}
+				this.contacts[this.index].messages.push(obj);
+				this.inputText ='';
+				setTimeout(() => {
+					let objA ={
+						text: 'Ok',
+						status: 'received'
+					}
+					this.contacts[this.index].messages.push(objA);
+				}, 1000);
+			}
+
+
+		}
 
 
 
