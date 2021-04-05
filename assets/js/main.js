@@ -72,7 +72,7 @@ var app = new Vue(
 					],
 				},
 				{
-					name: 'Luisa',
+					name: 'Giovanni',
 					avatar: '_4',
 					visible: true,
 					messages: [
@@ -129,7 +129,7 @@ var app = new Vue(
 					messages: [
 						{
 							date: '10/01/2020 15:30:55',
-							text: 'Mi manderesti gli appunti di Francese?',
+							text: 'Mi manderesti gli appunti di Informatica?',
 							status: 'sent'
 						},
 						{
@@ -146,7 +146,7 @@ var app = new Vue(
 					messages: [
 						{
 							date: '10/01/2020 15:30:55',
-							text: 'Buongiorno, il suo album è pronto. Può venire a ritirarlo in studio.',
+							text: 'Buongiorno, il suo album è pronto.',
 							status: 'sent'
 						},
 						{
@@ -162,13 +162,17 @@ var app = new Vue(
 		},
 
 		methods: {
+			// Prendo solo ore e minuti dalla data
 			// getTime: function(date) {
-			// 	let dateTime = date.split(" ");
-			// 	// let dateTime = date.slice(11,16);
-			// 	console.log(dateTime);
-			// 	let time = dateTime[1].split(":");
-			// 	console.log(time);
-			// 	return `${time[0]} : ${time[1]}`;
+				// let dateTime = date.split(" ");
+				// console.log(dateTime);
+				// console.log(dateTime[1]);
+				// let time = dateTime[1].split(":");
+				// console.log(time);
+				// return `${time[0]}:${time[1]}`;
+			//
+			// 	let dateTime = date.slice(11,16);
+			// 	return dateTime;
 			// },
 
 			changeIndex: function(i) {
@@ -184,18 +188,26 @@ var app = new Vue(
 					// un “ok” come risposta, che apparirà dopo 1 secondo.
 					// devo far partire un settimeout che un seconodo dopo l'inserimento di un messaggio da parte dell'utente crei un obj con text 'ok' e status received e lo inserisca nell'array
 			writeMessage: function(){
+				const date = dayjs().format('DD/MM/YYYY HH:mm:ss');
+
 				let obj ={
+					date,
 					text: this.inputText,
 					status: 'sent'
 				}
 				this.contacts[this.index].messages.push(obj);
+				// ripulisco l'input
 				this.inputText ='';
+				// salvo in una variabile il contatto a cui ho scritto il messaggio in modo che l'ok mi venga dato da lui anche se cambio schermata in quel secondo
+				let indexAnswer = this.contacts[this.index];
+
 				setTimeout(() => {
 					let objA ={
+						date,
 						text: 'Ok',
 						status: 'received'
 					}
-					this.contacts[this.index].messages.push(objA);
+					indexAnswer.messages.push(objA);
 				}, 1000);
 			}
 
