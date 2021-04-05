@@ -3,6 +3,7 @@ var app = new Vue(
 		el: '#root',
 		data: {
 			inputText:'',
+			inputTextSearch: '',
 			index: 0,
 			contacts: [
 				{
@@ -209,7 +210,39 @@ var app = new Vue(
 					}
 					indexAnswer.messages.push(objA);
 				}, 1000);
+			},
+
+			lastMessage: function(i) {
+				// nella const messages salva la posizione dei messaggi del contatto all'index
+				const message = this.contacts[i].messages;
+				const lastIndex = message.length - 1;
+				return message[lastIndex].text;
+			},
+
+			// prende ultimo accesso del contatto selezionato tramite index e ritorna la data
+			lastAccess: function(i) {
+				// nella const messages salva la posizione dei messaggi del contatto all'index
+				const messages = this.contacts[i].messages;
+				// nella const lastIndex salva l'indice dell'ultimo messaggio del contatto
+				const lastIndex = messages.length - 1;
+				// la funziona ritorna la data dell'ultimo messaggio del contatto selezionato
+				return messages[lastIndex].date;
+			},
+
+			filterContacts: function(array) {
+
+				const filteredContacts = array.filter((element) => {
+					if (this.inputTextSearch !== '') {
+						console.log(this.inputTextSearch);
+						return array.includes(this.inputTextSearch);
+					}
+
+				})
+				console.log(filteredContacts);
 			}
+
+
+
 
 
 		}

@@ -13,13 +13,15 @@
     <div id="root">
     <!-- HEADER -->
       <header>
+
+      <!-- TOPBAR -->
       <div class="topbar">
         <div class="info-topbar">
           <div class="avatar-access">
             <img :src="'./assets/img/avatar' + contacts[index].avatar + '.jpg'">
             <div class="info">
               <p class="name">{{contacts[index].name}}</p>
-              <p class="access t-grey">Ultimo accesso oggi alle ore 10/01/2020 16:15:22</p>
+              <p class="access t-grey">Ultimo accesso {{lastAccess(index)}}</p>
             </div>
             </div>
           <div class="icons-topbar controls t-grey">
@@ -29,8 +31,9 @@
           </div>
         </div>
       </div>
-      <div class="sidebar">
 
+      <!-- SIDEBAR -->
+      <div class="sidebar">
         <div class="info-sidebar">
           <div class="avatar-name">
             <img src="./assets/img/avatar_io.jpg" alt="avatar-image">
@@ -43,6 +46,7 @@
           </div>
         </div>
 
+        <!-- NOTIFICHE -->
         <div class="notifications">
           <div class="icon-info-notifications">
             <div class="icon">
@@ -55,14 +59,19 @@
           </div>
         </div>
 
+        <!-- RICERCA -->
         <div class="search-bar">
           <div class="icons"><i class="fas fa-search t-grey"></i></div>
-          <input type="text" placeholder="Cerca o inizia una nuova chat">
+          <input
+          type="text"
+          placeholder="Cerca o inizia una nuova chat"
+          v-model="inputTextSearch">
         </div>
 
+        <!-- CONTATTI SIDEBAR -->
         <div class="contacts">
           <div
-          v-for= "(contact, i) in contacts"
+          v-for= "(contact, i) in filterContacts(contacts)"
            @click="changeIndex(i)"
            :class="(index == i) ?'active' : ''"
            class="contact">
@@ -70,10 +79,10 @@
               <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="avatar-image">
               <div class="text">
                 <p class="name">{{contact.name}}</p>
-                <p class="t-grey">{{contact.messages[0].text}}</p>
+                <p class="t-grey">{{lastMessage(i)}}</p>
               </div>
             </div>
-            <p class="t-grey date">26/03/2021 16:15:22</p>
+            <p class="t-grey date">{{lastAccess(i)}}</p>
           </div>
         </div>
 
