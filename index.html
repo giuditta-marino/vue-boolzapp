@@ -71,7 +71,8 @@
         <!-- CONTATTI SIDEBAR -->
         <div class="contacts">
           <div
-          v-for= "(contact, i) in filterContacts(contacts)"
+          v-for= "(contact, i) in contacts"
+          v-if="isSearched(i)"
            @click="changeIndex(i)"
            :class="(index == i) ?'active' : ''"
            class="contact">

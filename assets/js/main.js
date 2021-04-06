@@ -162,6 +162,24 @@ var app = new Vue(
 
 		},
 
+		// computed: {
+		//
+		// 				filteredContacts: function() {
+		//
+		// 					const filteredContacts = this.contacts.filter((element) => {
+		// 						if (this.inputTextSearch !== '') {
+		// 							console.log(this.inputTextSearch);
+		// 							console.log(element);
+		// 							name = element.name;
+		// 							return name.toLowerCase().includes(this.inputTextSearch.toLowerCase());
+		// 						} else {
+		// 							return true;
+		// 						}
+		//
+		// 					})
+		// 					return filteredContacts;
+		// 				}
+		// },
 		methods: {
 			// Prendo solo ore e minuti dalla data
 			// getTime: function(date) {
@@ -229,17 +247,16 @@ var app = new Vue(
 				return messages[lastIndex].date;
 			},
 
-			filterContacts: function(array) {
+			isSearched: function(i){
+				const isUserSearched = this.contacts[i].name.toLowerCase().includes(this.inputTextSearch.toLowerCase());
 
-				const filteredContacts = array.filter((element) => {
-					if (this.inputTextSearch !== '') {
-						console.log(this.inputTextSearch);
-						return array.includes(this.inputTextSearch);
-					}
+				const messages = this.contacts[i].messages;
+				const lastIndex = messages.length - 1;
+				const isMessageSearched = messages[lastIndex].text.toLowerCase().includes(this.inputTextSearch.toLowerCase());
 
-				})
-				console.log(filteredContacts);
+				return isUserSearched || isMessageSearched;
 			}
+
 
 
 
