@@ -5,6 +5,7 @@ var app = new Vue(
 			inputText:'',
 			inputTextSearch: '',
 			index: 0,
+			indexMess: null,
 			contacts: [
 				{
 					name: 'Michele',
@@ -234,17 +235,29 @@ var app = new Vue(
 				// nella const messages salva la posizione dei messaggi del contatto all'index
 				const message = this.contacts[i].messages;
 				const lastIndex = message.length - 1;
-				return message[lastIndex].text;
+				if (message.length) {
+					return message[lastIndex].text;
+				} else {
+					return 'Non hai messaggi da visualizzare'
+				}
+
 			},
 
 			// prende ultimo accesso del contatto selezionato tramite index e ritorna la data
 			lastAccess: function(i) {
+
 				// nella const messages salva la posizione dei messaggi del contatto all'index
 				const messages = this.contacts[i].messages;
 				// nella const lastIndex salva l'indice dell'ultimo messaggio del contatto
 				const lastIndex = messages.length - 1;
-				// la funziona ritorna la data dell'ultimo messaggio del contatto selezionato
-				return messages[lastIndex].date;
+
+				if (messages.length) {
+					// la funziona ritorna la data dell'ultimo messaggio del contatto selezionato
+					return messages[lastIndex].date;
+				} else {
+					return "Scrivi qualcosa a " + this.contacts[i].name + " per poterlo visualizzare";
+				}
+
 			},
 
 			isSearched: function(i){
@@ -252,11 +265,40 @@ var app = new Vue(
 
 				const messages = this.contacts[i].messages;
 				const lastIndex = messages.length - 1;
-				const isMessageSearched = messages[lastIndex].text.toLowerCase().includes(this.inputTextSearch.toLowerCase());
+				if (messages.length) {
+					const isMessageSearched = messages[lastIndex].text.toLowerCase().includes(this.inputTextSearch.toLowerCase());
 
-				return isUserSearched || isMessageSearched;
+					return isUserSearched || isMessageSearched;
+				} else {
+					return isUserSearched;
+				}
+
+			},
+
+			// showOptions: function(indexMess) {
+			//
+			// 	 this.contacts[this.index].messages = this.contacts[this.index].messages.map((message, i) => {
+			// 		if (indexMess == i) {
+			//
+			// 			return {
+			// 				...message,
+			// 				options: true
+			// 			}
+			//
+			// 		} else {
+			// 			return {
+			// 				...message,
+			// 				options: false
+			// 			}
+			// 		}
+			//
+			// 	})
+			// 	console.log(this.contacts[this.index].messages);
+			// },
+
+			deleteMess: function(i){
+				this.contacts[this.index].messages.splice(i, 1);
 			}
-
 
 
 

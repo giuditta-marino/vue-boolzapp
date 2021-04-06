@@ -218,6 +218,31 @@ main .message{
   width: 35%;
   padding: 10px;
   margin-bottom: 8px;
+  position: relative;
+}
+
+main .message i{
+  float: right;
+  margin-left: 5px;
+}
+
+main .message .menu{
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  position: absolute;
+  right: -30px;
+  top: 30px;
+  display: none;
+}
+
+main .message .menu.active{
+  display: block;
+}
+
+main .message .menu li{
+  list-style: none;
+  cursor: pointer;
 }
 
 .message.sent{
