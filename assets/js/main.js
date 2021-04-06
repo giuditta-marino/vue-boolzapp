@@ -102,7 +102,7 @@ var app = new Vue(
 						},
 						{
 							date: '10/01/2020 15:50:00',
-							text: 'È vero, sono stata molto impegnata. Io sto bene e tu?',
+							text: 'Hai ragione! Io sto bene e tu?',
 							status: 'received'
 						}
 					],
@@ -200,7 +200,7 @@ var app = new Vue(
 				console.log(this.index);
 			},
 
-			// ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+			// Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
 			// “enter” il testo viene aggiunto al thread sopra, come messaggio verde
 			// PRENDERE enter E CREARE UNA FUNZIONE CHE CREI UN OGGETTO CON TEXT INPUTTEXT E LO AGGIUNGA ALL'ARRAY MESSAGES DI QUEL CONTATTO
 

@@ -26,6 +26,7 @@ img{
 }
 
 input{
+  font-size: 0.8em;
   outline: 0;
 }
 
@@ -207,7 +208,7 @@ header .sidebar .search-bar input{
 }
 
 header .sidebar .search-bar input::placeholder{
-  font-size: 0.6em;
+  font-size: 0.7em;
   font-weight: 600;
 }
 
@@ -228,6 +229,7 @@ header .sidebar .contacts .contact{
 header .sidebar .contacts .contact .img-name-message{
   display: flex;
   align-items: center;
+  width: 85%;
 }
 
 header .sidebar .contacts .contact:hover{
@@ -239,12 +241,13 @@ header .sidebar .contacts .contact:hover{
 }
 
 header .sidebar .contacts .contact .text{
-  padding-left: 17px;
+  padding-left: 10px;
 }
 
-header .sidebar .contacts .img-name-message{
-  display: flex;
+header .sidebar .contacts .contact .date{
+  width: 15%;
 }
+
 /* HEADER */
 
 /* MAIN */
@@ -261,8 +264,9 @@ main .message{
   border-radius: 8px;
   width: 35%;
   padding: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 11px;
   position: relative;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
 }
 
 main .message .date{
@@ -272,16 +276,26 @@ main .message .date{
 main .message i{
   float: right;
   margin-left: 5px;
+  display: none;
 }
+
 
 main .message .menu{
   background-color: #fff;
   border-radius: 8px;
   padding: 10px;
+  padding-top: 23px;
   position: absolute;
   right: -30px;
   top: 30px;
   display: none;
+  line-height: 0;
+  box-shadow: 1px 1px 10px 1px #d3d3d3;
+  z-index: 1;
+}
+
+main .message:hover i{
+  display: block;
 }
 
 main .message .menu.active{
@@ -291,6 +305,12 @@ main .message .menu.active{
 main .message .menu li{
   list-style: none;
   cursor: pointer;
+  font-size: 0.8em;
+  color: #A6ACAF;
+}
+
+main .message .menu li:hover{
+  color: #000;
 }
 
 .message.sent{
@@ -326,7 +346,7 @@ footer .input input{
 }
 
 footer .input input::placeholder{
-  font-size: 0.6em;
+  font-size: 0.7em;
   font-weight: 600;
 }
 
