@@ -10,17 +10,18 @@ body{
 }
 
 p{
+  font-size: 0.8em;
   margin-bottom: 0;
 }
 
 i{
-  font-size: 1.2em;
+  font-size: 0.9em;
   color: #A6ACAF;
   cursor: pointer;
 }
 
 img{
-  height: 55px;
+  height: 40px;
   border-radius: 50%;
 }
 
@@ -31,17 +32,45 @@ input{
 input::placeholder{
   color: #B0C0C5;
 }
+
+.background{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.background .green{
+  background-color: #039789;
+  width: 100%;
+  height: 15%;
+}
+
+.background .white{
+  background-color: #D9DCD5;
+  width: 100%;
+  height: 85%;
+}
+
+.contents{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 95vh;
+  width: 85vw;
+}
 /* GENERALI */
+
 
 /* HEADER */
 header{
-  height: 70px;
+  height: 50px;
 }
 
 header .topbar{
   margin-left: 35%;
   background-color: #F2F2F2;
-  height: 70px;
+  height: 50px;
   display: flex;
   align-items: center;
 }
@@ -55,7 +84,7 @@ header .topbar .info-topbar{
 }
 
 header .topbar .info-topbar img{
-  height: 40px;
+  height: 30px;
 }
 
 header .controls{
@@ -69,10 +98,18 @@ header .topbar .info-topbar .avatar-access{
   align-items: center;
 }
 
+header .topbar .info-topbar .avatar-access .access{
+  font-size: 0.6em;
+}
+
+header .topbar .info-topbar .info{
+  margin-left: 3px;
+}
+
 header .sidebar{
   background-color: #fff;
   width: 35%;
-  height: 100vh;
+  height: 95vh;
   position: fixed;
   top: 0;
 }
@@ -81,7 +118,7 @@ header .sidebar .info-sidebar{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 50px;
   background-color: #F2F2F2;
   padding: 0 10px;
   border-right: 1px solid #D5D8DC;
@@ -89,7 +126,7 @@ header .sidebar .info-sidebar{
 
 
 header .sidebar .info-sidebar img{
-  height: 40px;
+  height: 30px;
 }
 
 
@@ -98,8 +135,12 @@ header .sidebar .info-sidebar .avatar-name{
   align-items: center;
 }
 
+header .sidebar .info-sidebar .avatar-name .name{
+  margin-left: 3px;
+}
+
 header .sidebar .notifications{
-  height: 80px;
+  height: 60px;
   display: flex;
   align-items: center;
   background-color: #8EDAFC;
@@ -107,7 +148,7 @@ header .sidebar .notifications{
 }
 
 header .sidebar .notifications .text{
-  padding-left: 7px;
+  margin-left: 9px;
 }
 
 header .sidebar .notifications .icon-info-notifications{
@@ -125,11 +166,11 @@ header .sidebar .notifications .icon{
 
 header .sidebar .notifications .icon i{
   color: #8EDAFC;
-  font-size: 1.1em;
+  font-size: 0.9em;
 }
 
 header .sidebar .notifications .text .receive-notifications{
-  font-weight: 500;
+  font-weight: 600;
 }
 
 header .sidebar .notifications .text .active-notifications{
@@ -137,7 +178,7 @@ header .sidebar .notifications .text .active-notifications{
 }
 
 header .sidebar .search-bar{
-  height: 50px;
+  height: 40px;
   background-color: #FAFAFA;
   padding: 8px 10px;
   display: flex;
@@ -147,29 +188,32 @@ header .sidebar .search-bar .icons{
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-right: 0;
+  width: 20%;
 }
 
 header .sidebar .search-bar .icons i{
-font-size: 1em;
+font-size: 0.6em;
 }
 
 header .sidebar .search-bar input{
-  padding: 7px;
+  padding-left: 7px;
+  padding-top: 3px;
+  padding-bottom: 7px;
   width: 80%;
   border: 1px solid #eee;
 }
 
-header .sidebar .search-bar .icons{
-  width: 20%;
-  height: 34px;
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-right: 0;
+header .sidebar .search-bar input::placeholder{
+  font-size: 0.6em;
+  font-weight: 600;
 }
 
 header .sidebar .contacts{
   overflow-y: scroll;
-  height: calc(100vh - 200px);
+  height: calc(95vh - 150px);
 }
 
 header .sidebar .contacts .contact{
@@ -177,7 +221,7 @@ header .sidebar .contacts .contact{
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #D5D8DC;
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -205,8 +249,8 @@ header .sidebar .contacts .img-name-message{
 
 /* MAIN */
 main{
-  width: 64%;
-  height: calc(100vh - 140px);
+  width: 65%;
+  height: calc(95vh - 105px);
   background: url("../img/mine.jpg");
   margin-left: 35%;
   overflow-y: scroll;
@@ -219,6 +263,10 @@ main .message{
   padding: 10px;
   margin-bottom: 8px;
   position: relative;
+}
+
+main .message .date{
+  font-size: 0.6em;
 }
 
 main .message i{
@@ -257,7 +305,7 @@ main .message .menu li{
 footer{
   margin-left: 35%;
   background-color: #EAEAEA;
-  height: 70px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -270,12 +318,20 @@ footer .input{
 
 footer .input input{
   width: 100%;
-  padding: 14px;
+  padding-left: 12px;
+  padding-top: 7px;
+  padding-bottom: 8px;
   border-radius: 7px;
   border: 0;
 }
 
+footer .input input::placeholder{
+  font-size: 0.6em;
+  font-weight: 600;
+}
+
 footer i{
+  font-size: 1em;
   color: #687574;
 }
 
