@@ -255,7 +255,7 @@ var app = new Vue(
 					// la funziona ritorna la data dell'ultimo messaggio del contatto selezionato
 					return messages[lastIndex].date;
 				} else {
-					return "Scrivi qualcosa a " + this.contacts[i].name + " per poterlo visualizzare";
+					return "Inizia a chattare con " + this.contacts[i].name + " per conoscere ultimo accesso";
 				}
 
 			},
