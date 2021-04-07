@@ -200,18 +200,18 @@ var app = new Vue(
 			// 	return dateTime;
 			// },
 
+			// al click sul contact la funzione cambia la variabile index nei data e gli assegna il valore di i(indice del contact cliccato)
 			changeIndex: function(i) {
 				this.index = i;
 				console.log(this.index);
 			},
 
-			// Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
-			// “enter” il testo viene aggiunto al thread sopra, come messaggio verde
-			// PRENDERE enter E CREARE UNA FUNZIONE CHE CREI UN OGGETTO CON TEXT INPUTTEXT E LO AGGIUNGA ALL'ARRAY MESSAGES DI QUEL CONTATTO
+			// il v-model aggiunge alla variabile inputText nei data l'input
+			// la funzione, alla pressione del tasto invio, crea un oggetto che contiene come testo inputText, status sent e per data la data calcolata tramite la funzione della libreria dayjs e loggetto viene pushato nell'array contacts dentro il contatto che ha per indice this.index.
+			// si ripulisce linput dopo linvio.
+			// dentro ci inserisco una callback function che con un settimeout dopo un minuto crea un oggetto con testo ok e lo inserisce nei messaggi del contatto
+			// salvo il contatto in una const fuori dal settimeout perché la funzione settimeout non prende il this nei data, ha uno scope diverso
 
-					// Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
-					// un “ok” come risposta, che apparirà dopo 1 secondo.
-					// devo far partire un settimeout che un seconodo dopo l'inserimento di un messaggio da parte dell'utente crei un obj con text 'ok' e status received e lo inserisca nell'array
 			writeMessage: function(){
 				const date = dayjs().format('DD/MM/YYYY HH:mm:ss');
 
@@ -236,32 +236,38 @@ var app = new Vue(
 				}, 1000);
 			},
 
+			// la funzione lastmessage mostra lultimo messaggio nei contatti della sidebar per ogni i
 			lastMessage: function(i) {
 				// nella const messages salva la posizione dei messaggi del contatto all'index
 				const message = this.contacts[i].messages;
+				// nella const lastIndex salvo l'indice dell'ultimo messaggio di un contatto
 				const lastIndex = message.length - 1;
+
+				// se i messaggi hanno almeno un elemento
 				if (message.length) {
+					// ritorna l'ultimo messaggio del contatto e lo abbrevia se ha più di 35 caratteri
 					if (message[lastIndex].text.length > 35) {
 						return message[lastIndex].text.substring(0, 35) + '...';
 					} else {
 						return message[lastIndex].text
 					}
+				// se non ci sono messaggi, ritorna questo testo
 				} else {
 					return 'Non hai messaggi da visualizzare'
 				}
 
 			},
 
-			// prende ultimo accesso del contatto selezionato tramite index e ritorna la data
+			// nella sidebar nei contatti, per ogni i la funzione
 			lastAccess: function(i) {
 
-				// nella const messages salva la posizione dei messaggi del contatto all'index
+				// nella const messages salva la posizione dei messaggi del contatto all'indice i
 				const messages = this.contacts[i].messages;
 				// nella const lastIndex salva l'indice dell'ultimo messaggio del contatto
 				const lastIndex = messages.length - 1;
 
 				if (messages.length) {
-					// la funziona ritorna la data dell'ultimo messaggio del contatto selezionato
+					// se ci sono messaggi, la funzione ritorna la data dell'ultimo messaggio del contatto selezionato, altrimenti ritorna una stringa
 					return messages[lastIndex].date;
 				} else {
 					return "Inizia a chattare con " + this.contacts[i].name + "!";
@@ -269,16 +275,25 @@ var app = new Vue(
 
 			},
 
+			// funzione per filtrare i contatti e gli ultimi messaggi tramite input
 			isSearched: function(i){
+				console.log(this.contacts[i].name.toLowerCase().includes(this.inputTextSearch.toLowerCase()));
+
+				// nella const si salva il valore che ci ritorna dalla funzione includes, cioè se il contatto include l'inputTextSearch darà vero
 				const isUserSearched = this.contacts[i].name.toLowerCase().includes(this.inputTextSearch.toLowerCase());
 
 				const messages = this.contacts[i].messages;
 				const lastIndex = messages.length - 1;
+
+				// se ci sono messaggi
 				if (messages.length) {
+					// nella const si salva il valore che ci ritorna dalla funzione includes, cioè se l'ultimo messaggio del contatto include l'inputTextSearch darà vero
 					const isMessageSearched = messages[lastIndex].text.toLowerCase().includes(this.inputTextSearch.toLowerCase());
 
+					// avremo valore vero se il contatto o il messaggio include l'inputTextSearch
 					return isUserSearched || isMessageSearched;
 				} else {
+					// altrimenti, se non ci sono messaggi, avremo valore vero se il contatto include l'inputTextSearch
 					return isUserSearched;
 				}
 
@@ -305,20 +320,17 @@ var app = new Vue(
 			// 	console.log(this.contacts[this.index].messages);
 			// },
 
+			// al click su elimina messaggio, prende i messaggi del contatto all'index e ne elimina il messaggio allindice i
 			deleteMess: function(i){
 				this.contacts[this.index].messages.splice(i, 1);
 			},
 
+			// mette il focus all'input per scrivere il messaggio e con mounted si attiva al caricamento della pagina
 			focusInput: function() {
 				this.$refs.write.focus();
 			}
 
-
-
-
-
 		}
-
 
 
 

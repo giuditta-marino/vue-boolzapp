@@ -10,6 +10,7 @@
     <title>Boolzapp</title>
   </head>
   <body>
+    <!-- quando si clicca sul root indexmess diventa null, quindi il menu a tendina perde la classe active -->
     <div id="root" @click="indexMess = null">
 
       <div class="background">
@@ -76,11 +77,13 @@
 
               <!-- CONTATTI SIDEBAR -->
               <div class="contacts">
+                <!-- aggiunge a contact la classe active quando la variabile index ha valore uguale all i -->
+                <!-- con il vif si mostra il contatto solo se la funzione issearched ritorna un valore vero -->
                 <div
                 v-for= "(contact, i) in contacts"
                 v-if="isSearched(i)"
-                 @click="changeIndex(i)"
-                 :class="(index == i) ?'active' : ''"
+                @click="changeIndex(i)"
+                :class="(index == i) ?'active' : ''"
                  class="contact">
                   <div class="img-name-message">
                     <img :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="avatar-image">
@@ -102,6 +105,8 @@
               <div
               v-for="(message, i) in contacts[index].messages"               :class="(message.status == 'sent')?'sent offset-lg-8' :'received'"
               class="message col-lg-4">
+                <!-- al click sul messaggio a indexmess si assegna valore uguale all i del messaggio clickato -->
+                <!-- con .stop si stoppa la propagation del click, in modo che quando si clicca sul document questo non incida sul click sull'icona del menu -->
                 <i class="fas fa-angle-down"
                   @click.stop="indexMess = i"
                 ></i>
@@ -109,6 +114,7 @@
                 <p class="date t-grey">{{ message.date }}</p>
 
                 <!-- menu a tendina -->
+                <!-- si aggiunge classe active al menu a tendina se l'indexMess ha uguale valore all'i -->
                 <div class="menu"
                 :class="(indexMess == i) ? 'active' : '' ">
                   <ul>
@@ -127,7 +133,7 @@
                   <i class="far fa-smile"></i>
                 </div>
                 <div class="input">
-                  <input type="text" ref=write placeholder="Scrivi un messaggio"                  
+                  <input type="text" ref=write placeholder="Scrivi un messaggio"
                   v-model="inputText"
                   @keyup.enter="writeMessage"
                   >
