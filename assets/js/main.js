@@ -181,6 +181,11 @@ var app = new Vue(
 		// 					return filteredContacts;
 		// 				}
 		// },
+
+		mounted() {
+			this.focusInput()
+		},
+
 		methods: {
 			// Prendo solo ore e minuti dalla data
 			// getTime: function(date) {
@@ -236,7 +241,11 @@ var app = new Vue(
 				const message = this.contacts[i].messages;
 				const lastIndex = message.length - 1;
 				if (message.length) {
-					return message[lastIndex].text;
+					if (message[lastIndex].text.length > 35) {
+						return message[lastIndex].text.substring(0, 35) + '...';
+					} else {
+						return message[lastIndex].text
+					}
 				} else {
 					return 'Non hai messaggi da visualizzare'
 				}
@@ -255,7 +264,7 @@ var app = new Vue(
 					// la funziona ritorna la data dell'ultimo messaggio del contatto selezionato
 					return messages[lastIndex].date;
 				} else {
-					return "Inizia a chattare con " + this.contacts[i].name + " per conoscere ultimo accesso";
+					return "Inizia a chattare con " + this.contacts[i].name + "!";
 				}
 
 			},
@@ -298,6 +307,10 @@ var app = new Vue(
 
 			deleteMess: function(i){
 				this.contacts[this.index].messages.splice(i, 1);
+			},
+
+			focusInput: function() {
+				this.$refs.write.focus();
 			}
 
 
